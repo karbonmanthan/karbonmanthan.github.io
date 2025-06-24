@@ -1,3 +1,9 @@
+---
+title: "On Chloris Geospatial's capability to assist with methdology VM0047"
+description: "Chloris Geospatial's capability to assist with methdology VM0047"
+tags: Remote Sensing 
+---
+
 ## On Chloris Geospatial's capability to assist with methdology VM0047
 
 Chloris Geospatial claims to have developed a solution that can assist various carbon market players applying the methodology VM0047.
