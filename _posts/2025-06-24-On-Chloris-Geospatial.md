@@ -8,7 +8,9 @@ tags: RemoteSensing
 
 Chloris Geospatial claims to have developed a solution that can assist various carbon market players applying the methodology VM0047.
 
-<img src="https://raw.githubusercontent.com/karbonmanthan/karbonmanthan.github.io/_images/test.png" alt='Test to see image funcationality.'>
+
+
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/b851d12120bc9840e3a6ad81f382184d1cd80407/_images/test.png" alt='Test to see image funcationality.'>
 
 *   **Context -** Environmental markets are witnessing an unprecedented rise in projects related to Nature based solutions across standards. Forests are time-tested banks of carbon capture – and since their performance is this regard is scientifically demonstrable, there has been an increased incentive to develop projects under carbon mechanism.
     
