@@ -1,5 +1,4 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Remote Sensing | Voluntary Carbon Markets | Value Chain Interventions | 
+Certification | Vertification | Standard Bodies | 
+Forestry | Agriculture | Land Use Change | 
+Python | Statistics | Carbon Market Analysis
