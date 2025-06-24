@@ -10,7 +10,7 @@ Chloris Geospatial claims to have developed a solution that can assist various c
 
 
 
-<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/ebbdc0b813a44bdddf9003c3bf15ceb527d9639a/assets/test.png?raw=True" alt='Test to see image funcationality.'>
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/ebbdc0b813a44bdddf9003c3bf15ceb527d9639a/assets/test.png?raw=true" alt='Test to see image funcationality.'>
 
 *   **Context -** Environmental markets are witnessing an unprecedented rise in projects related to Nature based solutions across standards. Forests are time-tested banks of carbon capture – and since their performance is this regard is scientifically demonstrable, there has been an increased incentive to develop projects under carbon mechanism.
     
