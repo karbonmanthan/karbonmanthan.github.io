@@ -8,6 +8,9 @@ tags: RemoteSensing
 
 Chloris Geospatial claims to have developed a solution that can assist various carbon market players applying the methodology VM0047.
 
+$$
+\cos\left(A\right)=\frac{b^2+c^2-a^2}{2\cdot b\cdot c}
+$$
 
 
 <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/ebbdc0b813a44bdddf9003c3bf15ceb527d9639a/assets/test.png?raw=true" alt='Test to see image funcationality.'>
