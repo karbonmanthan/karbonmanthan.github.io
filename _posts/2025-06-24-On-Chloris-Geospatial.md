@@ -1,7 +1,7 @@
 ---
 title: "On Chloris Geospatial's capability to assist with methdology VM0047"
 description: "Chloris Geospatial's capability to assist with methdology VM0047"
-tags: Remote Sensing 
+tags: RemoteSensing 
 ---
 
 ## On Chloris Geospatial's capability to assist with methdology VM0047
