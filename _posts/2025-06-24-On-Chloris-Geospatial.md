@@ -33,7 +33,7 @@ VERRA’s [VM0047 Methodology](https://verra.org/methodologies/vm0047-afforestat
   
 * Appendix 1 of VM0047 outlines for project developers how the potential control points from chosen from a donor pool. See [Project 5085](https://registry.verra.org/app/projectDetail/VCS/5085) for an example of how this approach was adopted in Burkina Faso.
 
-<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/3b3c2a708bffcf73172f1d0ff73685fc16c28790/assets/control_point.png" alt="Figure from the public Validation Report linked above.">
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/assets/control_point.png" alt="Figure from the public Validation Report linked above.">
 
 
 * "Stocking index" – is a remote sensing based score that estimates forest biomass above ground (a "proxy for above ground biomass"). Examples include - NDVI, NDFI or EVI. Regression is performed between observed above ground biomass to stocking index to derive the slope of the time series. Slope of stocking index from "project plots" is compared with “control points” to check that the project is really adding more carbon.  The project is required to show that there is significant statistical difference between the stocking index of control points and project plots.
