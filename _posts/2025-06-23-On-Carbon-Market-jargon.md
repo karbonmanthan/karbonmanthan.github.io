@@ -6,7 +6,7 @@ tags: Carbon_Market
 
 ## Carbon Market jargon and abbreviation
 
-Niel Postman - one of the most insightful critic of our times - often quotes George Bernard Shaw to make an insightful point. In his speech to the German Informatics Society (Gesellschaft fuer Informatik) on October 11, 1990 in Stuttgart he begins - 
+Neil Postman - one of the most insightful critic of our times - often quotes George Bernard Shaw to make a point. In his speech to the German Informatics Society (Gesellschaft fuer Informatik) on October 11, 1990 in Stuttgart he begins - 
 
 >"The great English playwright and social philosopher George Bernard Shaw once remarked that all professions are conspiracies against the common folk. He meant that those who belong to elite trades -- physicians, lawyers, teachers, and scientists -- protect their special status by creating vocabularies that are incomprehensible to the general public. This process prevents outsiders from understanding what the profession is doing and why -- and protects the insiders from close examination and criticism. Professions, in other words, build forbidding walls of technical gobbledegook over which the prying and alien eye cannot see."
 
@@ -14,6 +14,8 @@ Niel Postman - one of the most insightful critic of our times - often quotes Geo
 Few professions, however, have gone as far as the "Sustainable Voluntary Carbon Market" in their attempt to use inane and unnecessarily contrived technical gobbledegook to keep its activities from prying eyes - lest someone who does not know the secrets of this trade be allowed entry to the inner halls to express an untutored point of view or God forbid, an actual criticism.
 
 Below is the list of acronyms I have been compiling since 2021 - related to Carbon Market for reference.
+
+---
 
 
 | **Abbreviation or Acronym** | **Full name**                                                                                                                                 |
