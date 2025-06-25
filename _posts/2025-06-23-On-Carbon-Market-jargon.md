@@ -6,9 +6,10 @@ tags: Carbon_Market
 
 ## Carbon Market jargon and abbreviation
 
-Neil Postman - one of the most insightful critic of our times - often quotes George Bernard Shaw to make a point. In his speech to the German Informatics Society (Gesellschaft fuer Informatik) on October 11, 1990 in Stuttgart [^fn1] he begins - 
+Neil Postman - one of the most insightful critic of our times - often quotes George Bernard Shaw to make a point. In his speech to the German Informatics Society (Gesellschaft fuer Informatik) on October 11, 1990 in Stuttgart he begins - 
 
 >"The great English playwright and social philosopher George Bernard Shaw once remarked that all professions are conspiracies against the common folk. He meant that those who belong to elite trades -- physicians, lawyers, teachers, and scientists -- protect their special status by creating vocabularies that are incomprehensible to the general public. This process prevents outsiders from understanding what the profession is doing and why -- and protects the insiders from close examination and criticism. Professions, in other words, build forbidding walls of technical gobbledegook over which the prying and alien eye cannot see."
+> -- <cite>[Neil Postman][1]</cite>
 
 
 Few professions, however, have gone as far as the "Sustainable Voluntary Carbon Market" in their attempt to use inane and unnecessarily contrived technical gobbledegook to keep its activities from prying eyes - lest someone who does not know the secrets of this trade be allowed entry to the inner halls to express an untutored point of view or God forbid, an actual criticism.
@@ -99,4 +100,4 @@ Below is the list of acronyms I have been compiling since 2021 - related to Carb
 | VPA-DD                  | Voluntary Project Activity - Design Document                                                                                              |
 | VVB                     | Validation and Verification bodies                                                                                                        |
 
-[fn1]: Postman, N., 1990. Informing ourselves to death. In The Nature of Technology: implications for learning and teaching (pp. 7-14). Rotterdam: SensePublishers.
+[1]: Postman, N., 1990. Informing ourselves to death. In The Nature of Technology: implications for learning and teaching (pp. 7-14). Rotterdam: SensePublishers.
