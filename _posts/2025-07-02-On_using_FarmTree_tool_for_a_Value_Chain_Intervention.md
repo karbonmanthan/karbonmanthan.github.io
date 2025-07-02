@@ -1,5 +1,7 @@
 ## On using FarmTree tool for a Value Chain Intervention Validation
 
+Coming from EM side, VC's fees are mindblowing to me. We would get max USD 6k for Certifying a combined Validation Verification together, agreena is USD 127k! I would have to work 4-6 months of earning revenue from several projects for that type of amount.
+
 ### Has farmtree tool ever been used for carbon credits? 
 Not really. There is some pilot project related connection for Acorn. Moreover, Acron's methodology uses models for remote sensing quantification expost.
 
