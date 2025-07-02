@@ -33,8 +33,11 @@ VERRA’s [VM0047 Methodology](https://verra.org/methodologies/vm0047-afforestat
   
 * Appendix 1 of VM0047 outlines for project developers how the potential control points from chosen from a donor pool. See [Project 5085](https://registry.verra.org/app/projectDetail/VCS/5085) for an example of how this approach was adopted in Burkina Faso.
 
+<figure>
 <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/2368d57ba9bf8efbc9570b0ff6313ff8d9edb1f4/assets/control_point.png?raw=true" alt="Figure from the public Validation Report linked above" title="Figure from the public Validation Report linked above">
-
+<figcaption> Figure from the public Validation Report linked above
+</figcaption>
+</figure>
 
 * "Stocking index" – is a remote sensing based score that estimates forest biomass above ground (a "proxy for above ground biomass"). Examples include - NDVI, NDFI or EVI. Regression is performed between observed above ground biomass to stocking index to derive the slope of the time series. Slope of stocking index from "project plots" is compared with “control points” to check that the project is really adding more carbon.  The project is required to show that there is significant statistical difference between the stocking index of control points and project plots.
   
@@ -59,9 +62,11 @@ Usually indices like NDFI, NDVI, EVI are used. These traditional indices (derive
 * better at showing real carbon gains and perhaps higher additionality demonstration.
 
 This is based on the following result Chloris has published on its website.
-
+<figure>
 <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/2368d57ba9bf8efbc9570b0ff6313ff8d9edb1f4/assets/Chloris.jpg?raw=true" alt="Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)" title="Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)">
-
+<figcaption> Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)" title="Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)
+</figcaption>
+</figure>
 ---
 
 ### Potential for VVBs
