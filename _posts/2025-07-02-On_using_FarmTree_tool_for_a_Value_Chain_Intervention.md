@@ -28,18 +28,26 @@ Another option - if we really cannot enforce measurement - is to ask for a writt
 ### What is the finding with clause?
 
 Change in the carbon stocks in the project references the use of AR-TOOL 14. 
+
+Clause 20 Section 5.5 AR-AMS0007 -
 <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/reftotool.png?raw=true" alt="Clause 20 Section 5.5 AR-AMS0007">
 
 *	ex ante
 
-	The tool explicitly states that the use of model for estimation of tress biomass is exlusively restricted to the ex-ante estimation. 
+	The tool explicitly states that the use of model for estimation of tress biomass is exlusively restricted to the ex-ante estimation.
+
+Clause 1 Section 1 AR-TOOL14
 	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/exante.png?raw=true" alt="Clause 1 Section 1 AR-TOOL14">
 
 	Section 8.2. AR-TOOL14 lays out the modelling approach for this ex ante estimation - stating that the tree growth is simulated using local tree-growth data from past experience. 
-	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/exantemodel.png?raw=true" alt="Section 8.2 AR-TOOL14">
+
+Section 8.2 AR-TOOL14	
+ <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/exantemodel.png?raw=true" alt="Section 8.2 AR-TOOL14">
 
 	The Intervention Developer has submitted the FarmTree tool as a way to quantify the biomass. The model tool seems to be modelling tree growth as a function of radiative forcing, production potential and contraining factors that determine that potential. Such a tool/ modelling approach hasn't really been used in the carbon market before for biomass estimation and issuance of credits. Standard practice is to use growth curve approach or allometric equation.
-	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/exanteapproach.png?raw=true" alt="Clause 6 Section 1 Appendix 1 AR-TOOL14">
+
+Clause 6 Section 1 Appendix 1 AR-TOOL14
+ <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/exanteapproach.png?raw=true" alt="Clause 6 Section 1 Appendix 1 AR-TOOL14">
 
 	Based on this the following CAR is raised 
 
@@ -49,6 +57,7 @@ Change in the carbon stocks in the project references the use of AR-TOOL 14.
 
 	The tool explicitly states that ex post estimation of tree biomass uses data from measurements conducted in sample plot. 
 
+	Clause 1 Section 1 AR-TOOL14
 	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/de6881b4003a2d661912ddbff8478b1635cf8d57/assets/exante.png?raw=true" alt="Clause 1 Section 1 AR-TOOL14">
 
 	Approach of ex post estimates using measurements and allometric equation to determine stock change is consistent with almost all the standard methodologies in the market. It is a standard practice to conduct these measurements using sampling approach so as to make it feasible over a larger area across several actors at a certain precision level.
