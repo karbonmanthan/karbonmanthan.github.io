@@ -64,7 +64,7 @@ Usually indices like NDFI, NDVI, EVI are used. These traditional indices (derive
 This is based on the following result Chloris has published on its website.
 <figure>
 <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/2368d57ba9bf8efbc9570b0ff6313ff8d9edb1f4/assets/Chloris.jpg?raw=true" alt="Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)" title="Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)">
-<figcaption> Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)" title="Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)
+<figcaption> Comparision of stocking indices from [Chloris](https://www.chloris.earth/resources/gettingvm0047right)
 </figcaption>
 </figure>
 ---
