@@ -52,7 +52,6 @@ Following are some of the terms created for Value Chains on the left columns mea
 
 
 | **Value Chain Technical Term** | **Voluntary Carbon Market Technical Term** | **Meaning** |
-                              |
 | ----------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | Intervention Activities | Project Activities | Change in technology or practice that leads to CO<sub>2</sub> reduced or stored. |
 | Impact Units | Carbon Credits |  One ton of carbon reduced or removed by intervention/activity |
@@ -63,4 +62,5 @@ Following are some of the terms created for Value Chains on the left columns mea
 
 ### References and Footnotes
 <a id="1">[1]</a> Companies conveniently call them "indirect" emissions claiming a lack of control as it involves other actors over which they might not have operational control.
+
 <a id="1">[2]</a> The similarity between the Christian belief - that the world would not have been created without divine intervention or that the divine intervention is needed to save fallen humanity - and the principle of "causality/additionality" in sustainability is, I would argue, not accidental. See [Rajiv Malhotra's Being Different](https://rajivmalhotra.com/being-different/)
