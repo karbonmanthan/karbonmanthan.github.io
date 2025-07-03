@@ -44,6 +44,23 @@ Value chain has not been able to yet create as much standard rules and requireme
 
 Perhaps the most damning of all proof that Voluntary Carbon Markets is same as Value Chain is that in the organization I work in, there is not even a different team for these two spaces. The same set of auditors who audit Voluntary Carbon Markets are also the one who audit Value Chain Interventions! We just charge Value Chain players way more. Environmental Markets gives better repeat business. But Value Chain space is still picking up and it brings in much larger revenue pie.
 
+---
 
-### References
+### Technical synonyms created for Value Chain and Voluntary Carbon Markets
+
+Following are some of the terms created for Value Chains on the left columns mean the same thing as the term from Voluntary Carbon Market in the right column.
+
+
+| **Value Chain Technical Term** | **Voluntary Carbon Market Technical Term** | **Meaning** |
+                              |
+| ----------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Intervention Activities | Project Activities | Change in technology or practice that leads to CO<sub>2</sub> reduced or stored. |
+| Impact Units | Carbon Credits |  One ton of carbon reduced or removed by intervention/activity |
+| Causality | Additionality | Said change would not have happened without intervention from the beneficiary [[2]](#2)|
+| Programme of Interventions | Programme of Activities | Framework where different interventions/activities or different players/stakeholders can be grouped under the same umbrella with some similarity for convenience |
+
+---
+
+### References and Footnotes
 <a id="1">[1]</a> Companies conveniently call them "indirect" emissions claiming a lack of control as it involves other actors over which they might not have operational control.
+<a id="1">[2]</a> The similarity between the Christian belief - that the world would not have been created without divine intervention or that the divine intervention is needed to save fallen humanity - and the principle of "causality/additionality" in sustainability is, I would argue, not accidental. See [Rajiv Malhotra's Being Different](https://rajivmalhotra.com/being-different/)
