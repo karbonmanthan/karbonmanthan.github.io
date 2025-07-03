@@ -42,7 +42,7 @@ Value chain has not been able to yet create as much standard rules and requireme
 
 ---
 
-Perhaps the most damning of all proof that Voluntary Carbon Markets is same as Value Chain is that in the organization I work in, there is not even a different team for these two spaces. The same set of auditors who audit Voluntary Carbon Markets are also the one who audit Value Chain Interventions! We just charge Value Chain players way more. Environmental Markets gives better repeat business. But Value Chain space is still picking up and it brings in much larger revenue pie.
+Perhaps the most damning of all proof that Voluntary Carbon Markets is same as Value Chain is that in the organization I work in, there is not even a different team for these two spaces. The same set of auditors who audit Voluntary Carbon Markets are also the one who audit Value Chain Interventions! The principles of audits are the same. We just charge Value Chain players way more. Environmental Markets gives better repeat business. But Value Chain space is still picking up and it brings in much larger revenue pie. Some organizations in the Value Chain space are now acknowledging the similarity with a new technical term ["Market-Based Intruments Program"](https://valuechangeinitiative.com/workstreams/market-based-instruments-program/).
 
 ---
 
