@@ -1,6 +1,6 @@
 ---
 title: "GS23144-Tati-Solar-Project-Validation"
-description: "Carbon Market abbreviation updated constantly"
+description: 
 tags: GS23144_Tati_Solar_Project_Validation 
 ---
 
