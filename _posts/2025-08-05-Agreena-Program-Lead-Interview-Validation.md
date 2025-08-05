@@ -1,11 +1,10 @@
-# Program Lead interview
-
 ---
 title: "Agreena Program Lead Interview Validation"
 description: ""
 tags: Agreena 
 ---
 
+# Program Lead interview
 
 - When did the 1st farmer start activity? 
 Agree started onboarding farmers during September 2024.
