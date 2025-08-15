@@ -420,7 +420,7 @@ ax.set_ylim(y_min, y_max)
 The following results shows how these samples includes all the unique operators within the defined buffer of 150 km of the city - 
 
 <figure>
-	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/fb5369d2ef7db27cff54371d455a46d2c2b7eb23/assets/Hive_random20_seoul.png?raw=True">
+	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/68c5620abfc68b4f3c66fb57210f09ccdefcb0f3/assets/Hive_strat20_seoul.png?raw=True">
 </figure>
 
 
