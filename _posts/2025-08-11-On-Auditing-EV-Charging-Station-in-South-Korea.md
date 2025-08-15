@@ -78,12 +78,50 @@ with fiona.open(f) as collection:
     gdf = gpd.GeoDataFrame.from_features(collection)
 ```
 
-Next, I assig crs I found data is in - 
+Next, I assign the coordinate reference system I found data is in. One can determine crs either by loading data in QGIS and reading the bottom right corner or just copy the coordinate of the location and googling to determine the crs since you know which city it is in.  
 
 ```python
 gdf.set_crs(epsg=4326, inplace=True)
 ```
 
+This is what the geodataframe roughly looks like.
 <figure>
 <img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/986767a51d06b2fce2f80d76da4414e3f6f9bb9e/assets/gdf_head.png?raw=true">
 </figure>
+
+Note that the GPS coordinates of each charging station is in first "geometry" column - which is the geometrical attribute of this geodataframe. For a geodataframe is just a dataframe with corresponding geometrical attributes. Note also that the python is smoothly able to load over ~210,000 points quiet seamlessly.
+
+### Change CPO from Korean to English
+The names of the Charging Point Operators (CPOs) are provided by the project developer are understandably in  Korean. Since neither me nor my collegues know Korean, I use python to convert them to English. First, I locate all the unique CPO names using the ".unique()" method from pandas. After using google translate, I create the following dictionary and create a new "CPO_en" column that maps the Korean name and uses the dictionary to assign the corresponding English name in the same row - 
+
+```python 
+korean_to_english = {
+    '(주) 플러그링크' : "Pluglink Co., Ltd.",
+    '타디스테크놀로지': "Tardis Technology Co., Ltd.",
+    '피트인' : "FitIn Co., Ltd.", 
+    '차지비' : "Chargebee Co., Ltd.", 
+    'Chaevi' : "Chaevi",
+    '(주) 블루네트웍스' : "Blue Networks Co., Ltd.",
+    '나이스차저' : "Nice Charger Co., Ltd.",
+    '(주) 이지차저' : "Easy Charger Co., Ltd.", 
+    '대한송유관공사' : "Korea Pipeline Corporation", 
+    '신세계아이앤씨' : "Shinsegae I&C Co., Ltd.", 
+    '파워큐브코리아' : "Power Cube Korea Co., Ltd.",
+    '차지인' : "Chargein Co., Ltd.",
+    'GS Caltex' : "GS Caltex", 
+    'LG 유플러스 볼트업' : "LG U+ Volt Up Co., Ltd.", 
+    '서울도시가스' : "Seoul City Gas Co., Ltd."
+}
+
+gdf['CPO_en'] = gdf['CPO'].map(korean_to_english) # Create a column of English names
+```
+
+### Load South Korea as basemap
+Now I would like to see all these charging station on a map of Korea. [Natural Earth](https://www.naturalearthdata.com/) is the usual choice. The website provides global shapefiles of all countries. The added benefit of using Natural Earth over others is that one can easily form [quick workarounds](https://github.com/karbonmanthan/Natural-Earth-Shapefile-World-Map-with-Kashmir-as-Integral-part-of-India) to obtain maps country's point of view regarding international borders.
+
+First, I load the global layer using geopanda's "read_file" and then filter on just the South Korea's boundaries using South Korea's "adm1_code" which is "KOR" (ISO 3166 codes for the first level of subdivision for countries).
+
+```python
+countries = gpd.read_file(r"ne_10m_admin_1_states_provinces\ne_10m_admin_1_states_provinces.shp")
+south_korea = countries[countries['adm1_code'].str.contains("KOR")]
+```
