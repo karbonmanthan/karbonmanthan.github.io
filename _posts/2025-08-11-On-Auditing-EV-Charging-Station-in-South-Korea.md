@@ -224,7 +224,7 @@ plt.tight_layout()
 This gives the following result - 
 
 <figure>
-<img src="Hive_all">
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/fb5369d2ef7db27cff54371d455a46d2c2b7eb23/assets/Hive_all.png?raw=True">
 </figure>
 
 The legend shows all 15 companies operating EV charging stations over Korea. GS Caltex is the clear dominant operator in South Korea across all regions. Seoul City Gas Co. Ltd. has significant presence along with GS Caltex in Seoul itself. Now that we have a rough idea of what the data looks like spatially - something I was struggeling to achieve using QGIS, let's get into sampling.
@@ -322,7 +322,7 @@ ax.set_ylim(y_min, y_max)
 The following figure shows the 20 samples selected randomly in 150 km radius around Seoul - 
 
 <figure>
-<img src="Hive_random20_seoul">
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/fb5369d2ef7db27cff54371d455a46d2c2b7eb23/assets/Hive_random20_seoul.png?raw=True">
 </figure>
 
 
@@ -367,6 +367,62 @@ seoul_sample_strat = seoul_sample_strat.to_crs(epsg=4326)
 seoul_sample_strat.to_file('HIVE_Seoul_20StratifiedSamples_Within150km.kml', driver='kml')
 
 ```
+
+Again to visualize where these samples are, I reuse the code from above to make corresponding plot for stratified samples - 
+
+``` python
+fig, ax = plt.subplots(figsize=(10, 10))
+south_korea.plot(ax=ax, color="#d0e6f5", edgecolor="black")
+
+seoul.plot(ax=ax, color='black', markersize=10)
+
+ax.annotate(
+    text='Seoul',
+    xy=(126.9780, 37.5665),         # location the arrow points to
+    xytext=(127.0, 37.8),           # location of the text label
+    fontsize=10,
+    color='black',
+    arrowprops=dict(
+        arrowstyle='->',            # arrow type
+        color='gray',
+        lw=1.5
+    ),
+    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="black", lw=0.5),
+    ha='center'
+)
+
+# Define bounding box around Seoul (in degrees, since you're in EPSG:4326)
+buffer_deg = 0.8  # roughly ~90 km
+x_min, x_max = seoul.geometry.x[0] - buffer_deg, seoul.geometry.x[0] + buffer_deg
+y_min, y_max = seoul.geometry.y[0] - buffer_deg, seoul.geometry.y[0] + buffer_deg
+
+
+# Plot charging station color by charging company
+for cat in seoul_sample_strat['CPO_en'].unique():
+    subset = seoul_sample_strat[seoul_sample_strat['CPO_en'] == cat]
+    subset.plot(ax=ax, markersize=12, color=color_map[cat], label=cat)
+plt.legend()
+plt.title('20 random charging stations in 150 km radius of Seoul')
+
+# Custom legend
+categories = seoul_sample_strat['CPO_en'].unique()
+handles = [
+    Line2D([0], [0], marker='o', color='w', label=cat,
+           markerfacecolor=color_map[cat], markersize=8)
+    for cat in categories
+]
+ax.legend(handles=handles, title="Charging Station Type CPO")
+# Zoom into Seoul
+ax.set_xlim(x_min, x_max)
+ax.set_ylim(y_min, y_max)
+```
+
+The following results shows how these samples includes all the unique operators within the defined buffer of 150 km of the city - 
+
+<figure>
+	<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/fb5369d2ef7db27cff54371d455a46d2c2b7eb23/assets/Hive_random20_seoul.png?raw=True">
+</figure>
+
 
 I repeat the same process for Busan and Daegu respectively as well. For brevity's sake I will skip that section.
 
