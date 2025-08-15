@@ -84,3 +84,6 @@ Next, I assig crs I found data is in -
 gdf.set_crs(epsg=4326, inplace=True)
 ```
 
+<figure>
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/986767a51d06b2fce2f80d76da4414e3f6f9bb9e/assets/gdf_head.png?raw=true">
+</figure>
