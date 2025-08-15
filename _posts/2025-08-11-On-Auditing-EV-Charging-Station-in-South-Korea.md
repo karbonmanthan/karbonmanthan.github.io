@@ -78,7 +78,7 @@ with fiona.open(f) as collection:
     gdf = gpd.GeoDataFrame.from_features(collection)
 ```
 
-Next, I assign the coordinate reference system I found data is in. One can determine crs either by loading data in QGIS and reading the bottom right corner or just copy the coordinate of the location and googling to determine the crs since you know which city it is in.  
+Next, I assign the coordinate reference system I found data is in. One can determine Coordinate Reference System - crs from here on - either by loading data in QGIS and reading the bottom right corner or just copy the coordinate of the location and googling to determine the crs since you know which city it is in.  
 
 ```python
 gdf.set_crs(epsg=4326, inplace=True)
@@ -125,3 +125,250 @@ First, I load the global layer using geopanda's "read_file" and then filter on j
 countries = gpd.read_file(r"ne_10m_admin_1_states_provinces\ne_10m_admin_1_states_provinces.shp")
 south_korea = countries[countries['adm1_code'].str.contains("KOR")]
 ```
+
+### Each unique color to each charing company
+Next I would like to assign each unique color to each charging point operator company so that it is easy to see the distribution on such dense datapoints. I do this by using unique CPO names and selecting colors from tab20 colormap for each unique name
+
+
+```python
+# # Create a color map from unique values
+unique_values = gdf['CPO_en'].unique()
+color_map = {val: color for val, color in zip(unique_values, plt.cm.tab20.colors)}
+
+# Assign colors to rows
+gdf['color'] = gdf['CPO_en'].map(color_map)
+```
+
+### Plot all charging station
+Now, let's plot the data and see what it looks like.
+
+I collect the 'name' columns from the Natural Earth Shapefile filtered on Korea to add them as text labels of different provinces. I use "adjust_text" so as not to crowd out the map and keep distance between labels.
+
+
+
+```python
+fig, ax = plt.subplots(figsize=(10, 10))
+south_korea.plot(ax=ax, color="#d0e6f5", edgecolor="black")
+
+# Generate and collect text objects
+texts = []
+for _, row in south_korea.iterrows():
+    point = row.geometry.representative_point()
+    texts.append(
+        ax.text(point.x, point.y, row['name'], fontsize=10, ha='center', color='black',
+               bbox=dict(facecolor='white', edgecolor='none', alpha=0.6))  # background box)
+    )
+
+# Adjust to avoid overlaps
+adjust_text(texts, ax=ax, expand_points=(1.2, 1.4), arrowprops=dict(arrowstyle="-", color='gray'))
+
+# Plot all charging stations in Korea in red
+gdf.plot(ax = ax, markersize=0.05, color='red', label='Charging station')
+plt.legend()
+plt.title('GPS points in Soth Korea')
+
+# Optional cleanup
+ax.set_axis_off()
+plt.tight_layout()
+``` 
+
+This is what the data looks like on the basemap of South Korea as a result - 
+
+<figure>
+<img src="">
+</figure>
+
+
+Each tiny red dot represents the a single EV charging station. And the figure shows critical hotspots all over Korea. There is an enormous concentration in the North around Seoul but stations are sparse around Gangwon. Daejeon, North Jeolla and Gwangju also show significant density in the middle with Busan and Daegu being prominant spots in the south of the country. Even Jeju island has a lot of station. This show how remarkably advanced the EV infrastructure development is in South Korea.
+
+### Plot charging stations and color by charing company CPO name
+Now let's analyze the pattern with different companies. I now plot the same data and assign unique color to the point depending on the operator company of the charging stations. To do this, I first create a for loop to go filter the geodataframe individually by each company name category, plot that subset with its uniquely assigned color and then repeat the process until all data is plotted. I export these results as .kml and excel files so that I can hand them over to my collegues in a manageable format.  
+
+```python
+fig, ax = plt.subplots(figsize=(10, 10))
+south_korea.plot(ax=ax, color="#d0e6f5", edgecolor="black")
+​
+# Generate and collect text objects
+texts = []
+for _, row in south_korea.iterrows():
+    point = row.geometry.representative_point()
+    texts.append(
+        ax.text(point.x, point.y, row['name'], fontsize=10, ha='center', color='black',
+               bbox=dict(facecolor='white', edgecolor='none', alpha=0.6))  # background box)
+    )
+
+# Adjust to avoid overlaps
+adjust_text(texts, ax=ax, expand_points=(1.2, 1.4), arrowprops=dict(arrowstyle="-", color='gray'))
+
+# Plot charging station color by charging company
+for cat in unique_values:
+    subset = gdf[gdf['CPO_en'] == cat]
+    subset.plot(ax=ax, markersize=1, color=color_map[cat], label=cat)
+plt.legend()
+plt.title('GPS points in Soth Korea')
+
+# Custom legend
+categories = gdf['CPO_en'].unique()
+handles = [
+    Line2D([0], [0], marker='o', color='w', label=cat,
+           markerfacecolor=color_map[cat], markersize=8)
+    for cat in categories
+]
+ax.legend(handles=handles, title="Charging Station Type CPO")
+​
+# Optional cleanup
+ax.set_axis_off()
+plt.tight_layout()
+```
+
+This gives the following result - 
+
+<figure>
+<img src="Hive_all">
+</figure>
+
+The legend shows all 15 companies operating EV charging stations over Korea. GS Caltex is the clear dominant operator in South Korea across all regions. Seoul City Gas Co. Ltd. has significant presence along with GS Caltex in Seoul itself. Now that we have a rough idea of what the data looks like spatially - something I was struggeling to achieve using QGIS, let's get into sampling.
+
+
+### Sample 20 random points within 150 km of Seoul
+I use 6 step process to solve the problem statement for Seoul random sampling. First, I define the center coordinate point of radius - Seoul's city center. I want to create a 150 km buffer around Seoul as a boundary to choose my sample from. But in order to work with metric units, I transform the crs of my geodataframe from EPSG:4326 to EPSG:3857 so that the metric distance makes sense for the Korean region. After this transformation, I create a buffer of 150 km. I filter the geodataframe to filter the  population to obtain a subset of all EV charging station that lie within this buffer boundary. From within the boundary I sample 20 points randomly using the "sample()" method from the pandas/geopandas library. After obtaining the sample, I transform the sample geodataframe of 20 points back to the original crs of EPSG:4326 so that the population and the sample are in the same coordinate reference system. 
+
+
+```python
+# Step 1: Define Seoul's coordinates in EPSG:4326
+seoul_latlon = Point(126.9780, 37.5665)
+seoul = gpd.GeoSeries([seoul_latlon], crs="EPSG:4326")
+
+# Step 2: Project both Seoul and your GeoDataFrame to EPSG:3857 (meters)
+seoul_proj = seoul.to_crs(epsg=3857)
+gdf_proj = gdf.to_crs(epsg=3857)
+
+# Step 3: Create a 150 km buffer around Seoul
+buffer = seoul_proj.buffer(150000)  # 150 km in meters
+
+# Step 4: Filter your GeoDataFrame to only points within the buffer
+within_radius = gdf_proj[gdf_proj.geometry.within(buffer.iloc[0])]
+
+# Step 5: Sample 20 points randomly (handle small result edge cases)
+if len(within_radius) >= 20:
+    seoul_sample = within_radius.sample(n=20, random_state=42)
+else:
+    print(f"Only {len(within_radius)} points found within 150 km of Seoul.")
+    seoul_sample = within_radius.copy()
+
+# Step 6: (Optional) Convert back to EPSG:4326
+seoul_sample = seoul_sample.to_crs(epsg=4326)
+
+
+seoul_sample.to_file('HIVE_Seoul_20RandomSamples_Within150km.kml', driver='kml')
+
+df_seoul_sample = seoul_sample.copy()
+df_seoul_sample["lon"] = df_seoul_sample.geometry.x
+df_seoul_sample["lat"] = df_seoul_sample.geometry.y
+df_seoul_sample = df_seoul_sample.drop(columns="geometry")
+
+# Export to Excel
+df_seoul_sample.to_excel("HIVE_Seoul_20RandomSamples_Within150km.xlsx", index=False)
+```
+To visualize what these samples, I next plot them on South Korea's map zommed in around the region of Seoul. I reuse the same for loop to go filter the geodataframe individually by each company name category, plot that subset with its uniquely assigned color. 
+
+```python
+fig, ax = plt.subplots(figsize=(10, 10))
+south_korea.plot(ax=ax, color="#d0e6f5", edgecolor="black")
+
+seoul.plot(ax=ax, color='black', markersize=10)
+
+ax.annotate(
+    text='Seoul',
+    xy=(126.9780, 37.5665),         # location the arrow points to
+    xytext=(127.2, 37.8),           # location of the text label
+    fontsize=10,
+    color='black',
+    arrowprops=dict(
+        arrowstyle='->',            # arrow type
+        color='gray',
+        lw=1.5
+    ),
+    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="black", lw=0.5),
+    ha='center'
+)
+
+# Define bounding box around Seoul (in degrees, since you're in EPSG:4326)
+buffer_deg = 0.8  # roughly ~90 km
+x_min, x_max = seoul.geometry.x[0] - buffer_deg, seoul.geometry.x[0] + buffer_deg
+y_min, y_max = seoul.geometry.y[0] - buffer_deg, seoul.geometry.y[0] + buffer_deg
+
+
+# Plot charging station color by charging company
+for cat in seoul_sample['CPO_en'].unique():
+    subset = seoul_sample[seoul_sample['CPO_en'] == cat]
+    subset.plot(ax=ax, markersize=12, color=color_map[cat], label=cat)
+plt.legend()
+plt.title('20 random charging stations in 150 km radius of Seoul')
+
+# Custom legend
+categories = seoul_sample['CPO_en'].unique()
+handles = [
+    Line2D([0], [0], marker='o', color='w', label=cat,
+           markerfacecolor=color_map[cat], markersize=8)
+    for cat in categories
+]
+ax.legend(handles=handles, title="Charging Station Type CPO")
+# Zoom into Seoul
+ax.set_xlim(x_min, x_max)
+ax.set_ylim(y_min, y_max)
+```
+
+The following figure shows the 20 samples selected randomly in 150 km radius around Seoul - 
+
+<figure>
+<img src="Hive_random20_seoul">
+</figure>
+
+
+## Sample 20 random points within 150 km of Seoul startified by company 
+Next, I perform the second type of sampling - stratified by Company. This is to make sure that the companies selected randomly includes one of the 15 companies at least once - so we can inspect each and every charging station site when we visit the country. For that I set out to define the 150 km buffer just like I did before - after converting the crs. The key difference is that I first randomly sample one point per company by applying the "sample()" method over  data that is grouped by the company name category using the "groupby()" method. After storing that result, the remaining points are sampled randomly within the buffer boundary. The results from the one-point-per-company so that in total 20 sample points are obtained in total. The results are then concatenated to a common geodataframe. The crs is converted back to original EPSG:4326 and the samples are exported as .kml and excel file.
+
+```python
+# Step 1: Define Seoul's coordinates in EPSG:4326
+seoul_latlon = Point(126.9780, 37.5665)
+seoul = gpd.GeoSeries([seoul_latlon], crs="EPSG:4326")
+
+# Step 2: Project both Seoul and your GeoDataFrame to EPSG:3857 (meters)
+seoul_proj = seoul.to_crs(epsg=3857)
+gdf_proj = gdf.to_crs(epsg=3857)
+
+# Step 3: Create a 150 km buffer around Seoul
+buffer = seoul_proj.buffer(150000)  # 150 km in meters
+
+# Step 4: Filter your GeoDataFrame to only points within the buffer
+within_radius = gdf_proj[gdf_proj.geometry.within(buffer.iloc[0])]
+
+# Sample 1 point per company first
+sampled_unique = within_radius.groupby("CPO_en", group_keys=False).apply(lambda x: x.sample(1, random_state=42))
+
+# If we have fewer than 20, sample more from remaining pool
+remaining_needed = 20 - len(sampled_unique)
+
+if remaining_needed > 0:
+    remaining = within_radius.drop(sampled_unique.index, errors='ignore')
+    additional = remaining.sample(n=remaining_needed, random_state=42)
+    seoul_sample_strat = pd.concat([sampled_unique, additional])
+else:
+    seoul_sample_strat = sampled_unique.sample(n=20, random_state=42)
+
+# This ensures:
+# Maximum number of unique companies
+# If < 20 companies exist, it fills the rest randomly from duplicates
+
+# Step 6: (Optional) Convert back to EPSG:4326
+seoul_sample_strat = seoul_sample_strat.to_crs(epsg=4326)
+
+seoul_sample_strat.to_file('HIVE_Seoul_20StratifiedSamples_Within150km.kml', driver='kml')
+
+```
+
+I repeat the same process for Busan and Daegu respectively as well. For brevity's sake I will skip that section.
+
+### Conclusion
+Python is an excellent way to perform spatial sampling when we have a population set so large it is difficult to do it quickly over QGIS. Hopefully the method outlined helps someone looking to do some spatial sampling.
