@@ -86,7 +86,7 @@ gdf.set_crs(epsg=4326, inplace=True)
 
 This is what the geodataframe roughly looks like.
 <figure>
-<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/986767a51d06b2fce2f80d76da4414e3f6f9bb9e/assets/gdf_head.png?raw=true">
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/986767a51d06b2fce2f80d76da4414e3f6f9bb9e/assets/gdf_head.png?raw=True">
 </figure>
 
 Note that the GPS coordinates of each charging station is in first "geometry" column - which is the geometrical attribute of this geodataframe. For a geodataframe is just a dataframe with corresponding geometrical attributes. Note also that the python is smoothly able to load over ~210,000 points quiet seamlessly.
