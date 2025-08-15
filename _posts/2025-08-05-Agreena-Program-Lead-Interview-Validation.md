@@ -7,7 +7,7 @@ tags: Agreena
 # Program Lead interview
 
 - When did the 1st farmer start activity? 
-Agree started onboarding farmers during September 2024.
+Agreena started onboarding farmers during September 2024.
 Actual activities did not begin until September 2024.
 1 September was selected based on change in green cover of the fields. Satellite index change selected date based on change.
 
