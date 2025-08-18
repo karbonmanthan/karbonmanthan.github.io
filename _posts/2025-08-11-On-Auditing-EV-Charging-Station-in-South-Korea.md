@@ -175,7 +175,7 @@ plt.tight_layout()
 This is what the data looks like on the basemap of South Korea as a result - 
 
 <figure>
-<img src="">
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/189ca80872e8fdb1b10ce282304723864fba93d2/assets/Hive_all.png?raw=True">
 </figure>
 
 
