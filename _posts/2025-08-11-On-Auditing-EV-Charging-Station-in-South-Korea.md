@@ -224,7 +224,7 @@ plt.tight_layout()
 This gives the following result - 
 
 <figure>
-<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/fb5369d2ef7db27cff54371d455a46d2c2b7eb23/assets/Hive_all.png?raw=True">
+<img src="https://github.com/karbonmanthan/karbonmanthan.github.io/blob/bd639df2c49be3a594334782707b520643a88cec/assets/Hive_all_comp.png?raw=True">
 </figure>
 
 The legend shows all 15 companies operating EV charging stations over Korea. GS Caltex is the clear dominant operator in South Korea across all regions. Seoul City Gas Co. Ltd. has significant presence along with GS Caltex in Seoul itself. Now that we have a rough idea of what the data looks like spatially - something I was struggeling to achieve using QGIS, let's get into sampling.
